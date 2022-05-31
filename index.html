@@ -1355,8 +1355,8 @@
 
                     const filteredPeople = 
                         app.people.filter(
-                            (p) => (p.skills.trim() || []).some(
-                                (s) => filterSkills.includes(s?.toLowerCase() || false)
+                            (p) => (p.skills || []).some(
+                                (s) => filterSkills.includes(s.trim()?.toLowerCase() || false)
                             )
                         )
 
