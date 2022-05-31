@@ -1285,7 +1285,11 @@
 
             const circleName = "BrainWeb";
             const skill =  "pints";
-            const filterSkills = ["Computational neuroscience", "Information theory", "Dynamical systems", "Graph Theory", "Dynamic causal modelling", "Bayesian Modelling", "Causal inference", "Python", "Development", "Evolution", skill];
+            const filterSkills = ["Computational neuroscience",
+                                  "Information theory", "Dynamical systems", "Graph Theory",
+                                  "Dynamic causal modelling", "Bayesian Modelling",
+                                  "Causal inference", "Python", "Development",
+                                  "Evolution", skill].map((o)=>o.toLowerCase());
             const skills = [];
 
             function arr2dic(arr) {
@@ -1351,7 +1355,7 @@
 
                     const filteredPeople = 
                         app.people.filter(
-                            (p) => (p.skills || []).some(
+                            (p) => (p.skills.trim() || []).some(
                                 (s) => filterSkills.includes(s?.toLowerCase() || false)
                             )
                         )
